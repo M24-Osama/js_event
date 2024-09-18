@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .div3 {
+        border: 1px solid black;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+      }
+      .div4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: #ccc;
+        margin: 0px;
+      }
+      .div5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+      }
+      a {
+        color: blue;
+      }
+      a:hover {
+        color: rgb(255, 0, 0);
+      }
+      #div6 p {
+        width: 50%;
+        height: 30vh;
+        background-color: #ccc;
+        border: 1px solid black;
+      }
+      #box {
+        width: 300px;
+        height: 300px;
+        background-color: rgb(255, 0, 0);
+      }
+
+      @keyframes colorChange {
+        0% {
+          background-color: red;
+        }
+        100% {
+          background-color: rgb(0, 0, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">Hello World</div>
+    <script>
+      let div1 = document.getElementById("div1");
+      div1.style.backgroundColor = "yellow";
+      div1.style.fontWeight = "bold";
+      div1.style.fontSize = "xx-large";
+      div1.style.border = "1px solid black";
+      div1.style.display = "inline";
+      div1.style.padding = "10px";
+    </script>
+    <br />
+    <br />
+    <select id="select1" style="display: block" onchange="flag()">
+      <option value="Jordan">Jordan</option>
+      <option value="Saudi_Arabia">Saudi_Arabia</option>
+      <option value="Lebanon">Lebanon</option>
+    </select>
+    <img id="flag" width="400" src="flag/Flag_of_Jordan.svg" alt="" />
+
+    <script>
+      function flag() {
+        let select = document.getElementById("select1").value;
+        document.getElementById("flag").src = "flag/Flag_of_" + select + ".svg";
+      }
+    </script>
+
+    <br /><br />
+    <div id="div2">
+      <div>
+        <label for="password">password(min 6 characters)</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          onchange="checkPassword()"
+        />
+        <label id="error1" for="password"></label>
+      </div>
+      <div>
+        <label for="confirmPassword"> confirm Password</label>
+
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          onchange="confirmPassword()"
+        />
+        <label id="error2" for="confirmPassword"></label>
+      </div>
+    </div>
+    <script>
+      function checkPassword() {
+        let pass = document.getElementById("password").value;
+        if (pass.length < 6) {
+          document.getElementById("error1").textContent = "Too short";
+          document.getElementById("error1").style.color = "red";
+        } else {
+          document.getElementById("error1").textContent = "";
+        }
+      }
+
+      function confirmPassword() {
+        let pass = document.getElementById("password").value;
+        let confirmPass = document.getElementById("confirmPassword").value;
+        if (pass !== confirmPass) {
+          document.getElementById("error2").textContent =
+            "the two passwords do not match";
+          document.getElementById("error2").style.color = "red";
+        } else {
+          document.getElementById("error2").textContent = "";
+        }
+      }
+    </script>
+    <br /><br />
+    <div id="div2">
+      <div>
+        <label for="password">password(min 6 characters)</label>
+        <input type="password" name="password" id="password1" />
+        <label id="error3" for="password"></label>
+      </div>
+      <div>
+        <label for="confirmPassword"> confirm Password</label>
+
+        <input type="password" name="confirmPassword" id="confirmPassword1" />
+        <label id="error4" for="confirmPassword"></label>
+        <br />
+        <input onclick="submit()" type="submit" value="Submit" />
+      </div>
+    </div>
+    <script>
+      function submit() {
+        let pass = document.getElementById("password1").value;
+        let confirmPass = document.getElementById("confirmPassword1").value;
+
+        if (pass.length < 6) {
+          document.getElementById("error3").textContent = "Too short";
+          document.getElementById("error3").style.color = "red";
+        } else {
+          document.getElementById("error3").textContent = "";
+        }
+        if (pass !== confirmPass) {
+          document.getElementById("error4").textContent =
+            "the two passwords do not match";
+          document.getElementById("error4").style.color = "red";
+        } else {
+          document.getElementById("error4").textContent = "";
+        }
+      }
+    </script>
+    <br /><br />
+    <div class="div3">
+      <div class="div4">
+        <h2>What is JavaScript</h2>
+        <a onclick="show(this)">show</a>
+      </div>
+      <div class="div5" style="display: none">
+        <p>
+          JavaScript is a scripting language that allows you to implement
+          complex features on web pages
+        </p>
+        <a onclick="hide(this)">Hide</a>
+      </div>
+    </div>
+
+    <div class="div3">
+      <div class="div4">
+        <h2>What is JavaScript</h2>
+        <a onclick="show(this)">show</a>
+      </div>
+      <div class="div5" style="display: none">
+        <p>
+          JavaScript is a scripting language that allows you to implement
+          complex features on web pages
+        </p>
+        <a onclick="hide(this)">Hide</a>
+      </div>
+    </div>
+
+    <div class="div3">
+      <div class="div4">
+        <h2>What is JavaScript</h2>
+        <a onclick="show(this)">show</a>
+      </div>
+      <div class="div5" style="display: none">
+        <p>
+          JavaScript is a scripting language that allows you to implement
+          complex features on web pages
+        </p>
+        <a onclick="hide(this)">Hide</a>
+      </div>
+    </div>
+
+    <div class="div3">
+      <div class="div4">
+        <h2>What is JavaScript</h2>
+        <a onclick="show(this)">show</a>
+      </div>
+      <div class="div5" style="display: none">
+        <p>
+          JavaScript is a scripting language that allows you to implement
+          complex features on web pages
+        </p>
+        <a onclick="hide(this)">Hide</a>
+      </div>
+    </div>
+
+    <script>
+      function show(element) {
+        const div5 = element.closest(".div3").querySelector(".div5");
+        div5.style.display = "flex";
+      }
+
+      function hide(element) {
+        const div5 = element.closest(".div3").querySelector(".div5");
+        div5.style.display = "none";
+      }
+    </script>
+    <br /><br />
+    <div id="div6">
+      <select name="Font1" onchange="font()" id="Font1">
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+      </select>
+      <select name="fontSize" onchange="FontSize()" id="fontSize">
+        <option value="10px">10px</option>
+        <option value="12px">12px</option>
+        <option value="16px">16px</option>
+        <option value="24px">24px</option>
+      </select>
+      <label for="Italic">Italic</label>
+      <input type="checkbox" onclick="Italic()" name="Italic" id="Italic" />
+      <label for="Bold">Bold</label>
+      <input type="checkbox" onclick="Bold()" name="Bold" id="Bold" />
+      <label for="Underline">Underline</label>
+      <input
+        type="checkbox"
+        onchange="Underline()"
+        name="Underline"
+        id="Underline"
+      />
+      <br />
+      <p id="p1">
+        JavaScript is a scripting language that allows you to implement complex
+        features on web pages
+      </p>
+    </div>
+    <script>
+      let p1 = document.getElementById("p1");
+      let Font1 = document.getElementById("Font1");
+      let fontSize = document.getElementById("fontSize");
+      let italic = document.getElementById("Italic");
+      let bold = document.getElementById("Bold");
+      let underline = document.getElementById("Underline");
+
+      function font() {
+        p1.style.fontFamily = Font1.value;
+      }
+
+      function FontSize() {
+        p1.style.fontSize = fontSize.value;
+      }
+
+      function Italic() {
+        if (italic.checked) {
+          p1.style.fontStyle = "italic";
+        } else {
+          p1.style.fontStyle = "normal";
+        }
+      }
+      function Bold() {
+        if (bold.checked) {
+          p1.style.fontWeight = "bold";
+        } else {
+          p1.style.fontWeight = "normal";
+        }
+      }
+      function Underline() {
+        if (underline.checked) {
+          p1.style.textDecoration = "underline";
+        } else {
+          p1.style.textDecoration = "none";
+        }
+      }
+    </script>
+    <br /><br />
+    <div id="box"></div>
+    <script>
+      let box = document.getElementById("box");
+      function myFunction1() {
+        box.style.animation = "colorChange 5s";
+      }
+      box.addEventListener("animationstart", myStartFunction);
+      box.addEventListener("animationiteration", myRepeatFunction);
+      box.addEventListener("animationend", myEndFunction);
+
+      function myStartFunction() {
+        this.style.backgroundColor = "blue";
+      }
+      function myRepeatFunction() {
+        this.style.backgroundColor = "blue";
+      }
+      function myEndFunction() {
+        this.style.backgroundColor = "blue";
+      }
+      setInterval(myFunction1, 5000);
+    </script>
+  </body>
+</html>
